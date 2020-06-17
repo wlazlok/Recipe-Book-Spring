@@ -1,5 +1,6 @@
 package karol.spring.recipeApp.services;
 
+import karol.spring.recipeApp.commands.RecipeCommand;
 import karol.spring.recipeApp.models.Recipe;
 
 import javax.persistence.Lob;
@@ -16,4 +17,6 @@ public interface RecipeService {
     Recipe findById(Long id);
 
     void deleteById(Long id);
+
+    RecipeCommand findCommandById(Long id);
 }

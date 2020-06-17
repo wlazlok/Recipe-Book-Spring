@@ -12,8 +12,12 @@
                 <th><h1 th:text="${recipe.description}"></h1></th>
                 <th></th>
                 <th></th>
-                <th> <img src="../../static/images/guacamole.jpg"
-                          width="300" height="200">
+                <th>
+                    <a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/image' }"><button type="button" class="btn btn-secondary btn-sm">Upload Image</button></a>
+
+                    <img src="src/main/resources/static/guacamole.jpg"
+                         th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                          width="200" height="200">
                 </th>
             </tr>
             <tr>

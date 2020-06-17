@@ -1,5 +1,7 @@
 package karol.spring.recipeApp.services;
 
+import karol.spring.recipeApp.commands.RecipeCommand;
+import karol.spring.recipeApp.converters.RecipeToRecipeCommand;
 import karol.spring.recipeApp.models.Recipe;
 import karol.spring.recipeApp.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,11 @@ import java.util.List;
 public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeRepository recipeRepository;
+    private final RecipeToRecipeCommand recipeToRecipeCommand;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeToRecipeCommand recipeToRecipeCommand) {
         this.recipeRepository = recipeRepository;
+        this.recipeToRecipeCommand = recipeToRecipeCommand;
     }
 
     @Override
@@ -39,5 +43,10 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public void deleteById(Long id) {
         recipeRepository.deleteById(id);
+    }
+
+    @Override
+    public RecipeCommand findCommandById(Long id) {
+        return recipeToRecipeCommand.convert(findById(id));
     }
 }
