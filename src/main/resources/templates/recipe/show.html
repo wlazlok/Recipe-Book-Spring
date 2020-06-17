@@ -3,25 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <title>Recipe App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    <h4>Description</h4>
-    <h5 th:text="${recipe.description}"></h5>
-    <h4>Categories</h4>
-    <ul>
-        <li th:each="category : ${recipe.categories}" th:text="${category.getDescription()}"></li>
-    </ul>
-    <h4>Info</h4>
-    <h5 th:text="'Prep time ' + ${recipe.prepTime}"></h5>
-    <h5 th:text="${'Cook time ' +recipe.cookTime}"></h5>
-    <h5 th:text="${'Servings ' +recipe.serving}"></h5>
-    <h5 th:text="${'Difficulty ' +recipe.difficulty}"></h5>
-    <h4>Ingrediens</h4>
-    <ul>
-        <li th:each="ing : ${recipe.ingredients}"
-            th:text="${ing.getAmount()} + ' ' + ${ing.unitOfMeasure.getDescription()} + ' ' + ${ing.getDescription()}"></li>
-    </ul>
-    <h4>Notes</h4>
-    <h5 th:text="${recipe.notes.getRecipeNote()}"></h5>
+    <div class="container container-fluid" style="margin-top:2%;">
+        <table class="table">
+            <tr>
+                <th><h1 th:text="${recipe.description}"></h1></th>
+                <th></th>
+                <th></th>
+                <th> <img src="../../static/images/guacamole.jpg"
+                          width="300" height="200">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h5>Categories</h5>
+                </th>
+                <th>
+                    <ul>
+                    <li th:each="category : ${recipe.categories}" th:text="${category.getDescription()}"></li>
+                    </ul>
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <h5>Prep time</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.prepTime}"></h5>
+                </th>
+                <th>
+                    <h5>Difficulty</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.difficulty}"></h5>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h5>Cook time</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.cookTime}"></h5>
+                </th>
+                <th>
+                    <h5>Servings</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.serving}"></h5>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <h5>Source</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.source}"></h5>
+                </th>s
+                <th>
+                    <h5>URL</h5>
+                </th>
+                <th>
+                    <h5 th:text="${recipe.url}"></h5>
+                </th>
+            </tr>
+            <tr class="table-info">
+                <th><h1>Ingrediens</h1></th>
+                <th></th>
+                <th></th>
+                <th style="float:right;"><button type="button" class="btn btn-warning btn-lg">Show</button></th>
+            </tr>
+            <tr>
+                <th>
+                    <ul>
+                        <li th:each="ing : ${recipe.ingredients}"
+                            th:text="${ing.getAmount()} + ' ' + ${ing.unitOfMeasure.getDescription()} + ' ' + ${ing.getDescription()}"></li>
+                    </ul>
+                </th>
+            </tr>
+            <tr class="table-info">
+                <th><h1>Directions</h1></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <p th:text="${recipe.direction}"></p>
+                </th>
+            </tr>
+            <tr class="table-info">
+                <th><h1>Notes</h1></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <h6 th:text="${recipe.notes.getRecipeNote()}"></h6>
+                </th>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

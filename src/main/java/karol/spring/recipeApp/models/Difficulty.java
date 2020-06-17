@@ -8,5 +8,5 @@ import javax.persistence.Entity;
  */
 public enum Difficulty {
 
-    EASE, MEDIUM, HARD
+    EASY, MEDIUM, HARD
 }

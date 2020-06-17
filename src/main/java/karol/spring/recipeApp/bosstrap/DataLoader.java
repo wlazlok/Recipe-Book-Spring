@@ -86,8 +86,8 @@ public class DataLoader implements CommandLineRunner {
         recipe.setDescription("Test recipe");
         recipe.setPrepTime(10);
         recipe.setCookTime(5);
-        recipe.setDifficulty(Difficulty.EASE);
-        recipe.setDescription("\"1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon\" +\n" +
+        recipe.setDifficulty(Difficulty.EASY);
+        recipe.setDirection("\"1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon\" +\n" +
                 "                \"\\n\" +\n" +
                 "                \"2 Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)\" +\n" +
                 "                \"\\n\"");
@@ -96,6 +96,10 @@ public class DataLoader implements CommandLineRunner {
         notes.setRecipe(recipe);
         recipe.setNotes(notes);
         recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(2), recipe, teaspoonUOM));
+        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(2), recipe, dashUOM));
+        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(32), recipe, teaspoonUOM));
+        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(10), recipe, dashUOM));
+        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(5), recipe, pintUOM));
         recipe.getCategories().add(polishCategory);
         recipe.getCategories().add(americanCategory);
         recipes.add(recipe);
