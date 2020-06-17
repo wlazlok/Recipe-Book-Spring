@@ -96,10 +96,10 @@ public class DataLoader implements CommandLineRunner {
         notes.setRecipe(recipe);
         recipe.setNotes(notes);
         recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(2), recipe, teaspoonUOM));
-        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(2), recipe, dashUOM));
-        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(32), recipe, teaspoonUOM));
-        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(10), recipe, dashUOM));
-        recipe.getIngredients().add(new Ingredient("test testing", new BigDecimal(5), recipe, pintUOM));
+        recipe.getIngredients().add(new Ingredient("kromk testing", new BigDecimal(2), recipe, dashUOM));
+        recipe.getIngredients().add(new Ingredient("test chleba", new BigDecimal(32), recipe, teaspoonUOM));
+        recipe.getIngredients().add(new Ingredient("maslo testing", new BigDecimal(10), recipe, dashUOM));
+        recipe.getIngredients().add(new Ingredient("test kukurydza", new BigDecimal(5), recipe, pintUOM));
         recipe.getCategories().add(polishCategory);
         recipe.getCategories().add(americanCategory);
         recipes.add(recipe);

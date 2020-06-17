@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container container-fluid" style="margin-top:2%; text-align:center;">
+        <h1 th:text=" ${recipe.description} + ' ingredients'"></h1>
+    </div>
+    <div class="container container-fluid" style="margin-top:2%;">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ing : ${recipe.ingredients}">
+                    <th scope="row" th:text="${ing.id}"></th>
+                    <td th:text="${ing.description}"></td>
+                    <td><a href="#" th:href=" @{'/recipe/' + ${recipe.id} + '/ingredients/' + ${ing.id} +  '/show' }"><button type="button" class="btn btn-primary">View</button></a></td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></a></td>
+                    <td><a href="#" th:href=" @{'/recipe/' + ${recipe.id} + '/ingredients/' + ${ing.id} +  '/delete' }"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
