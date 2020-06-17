@@ -2,24 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Ingredient</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+<div class="container container-fluid" style="margin-top:2%; text-align:center;">
+    <h1>Edit Ingredient Information</h1>
+</div>
+<div class="container container-fluid" style="margin-top:2%;">
     <form th:object="${ingredient}" th:action="@{'/recipe/' + ${ingredient.recipe.getId()} + '/ingredients'}" method="post">
-        <input type="hidden" th:field="*{id}"/>
-            <h1 class="panel-title">Edit Ingredient Information</h1>
-            <label>Description:</label>
-            <input type="text" class="form-control" th:field="*{description}"/>
-            <label>Amount:</label>
-            <input type="number" class="form-control" th:field="*{amount}"/>
-            <label>UOM:</label>
-                <select class="form-control" name="unitOfMeasure.id">
-                    <option th:each="uomEach : ${uomList}"
-                            th:value="${uomEach.id}"
-                            th:selected="${uomEach.id.equals(ingredient.unitOfMeasure.id)}"
-                            th:text="${uomEach.description}">Each</option>
-                </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-row">
+            <input type="hidden" th:field="*{id}"/>
+            <label><h5>Description</h5></label>
+                <input type="text" class="form-control" th:field="*{description}"/>
+                <label style="margin-top:1%" ><h5>Amount</h5></label>
+                <input type="number" class="form-control" th:field="*{amount}"/>
+
+                <label style="margin-top:1%"><h5>Unit of Measure</h5></label>
+                    <select class="form-control" name="unitOfMeasure.id">
+                        <option th:each="uomEach : ${uomList}"
+                                th:value="${uomEach.id}"
+                                th:selected="${uomEach.id.equals(ingredient.unitOfMeasure.id)}"
+                                th:text="${uomEach.description}">Each</option>
+                    </select>
+
+            <button type="submit" class="btn btn-primary" style="margin-top:1%;">Submit</button>
+        </div>
     </form>
+</div>
 </body>
 </html>
