@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe App</title>
+</head>
+<body>
+    <h4>Description</h4>
+    <h5 th:text="${recipe.description}"></h5>
+    <h4>Categories</h4>
+    <ul>
+        <li th:each="category : ${recipe.categories}" th:text="${category.getDescription()}"></li>
+    </ul>
+    <h4>Info</h4>
+    <h5 th:text="'Prep time ' + ${recipe.prepTime}"></h5>
+    <h5 th:text="${'Cook time ' +recipe.cookTime}"></h5>
+    <h5 th:text="${'Servings ' +recipe.serving}"></h5>
+    <h5 th:text="${'Difficulty ' +recipe.difficulty}"></h5>
+    <h4>Ingrediens</h4>
+    <ul>
+        <li th:each="ing : ${recipe.ingredients}"
+            th:text="${ing.getAmount()} + ' ' + ${ing.unitOfMeasure.getDescription()} + ' ' + ${ing.getDescription()}"></li>
+    </ul>
+    <h4>Notes</h4>
+    <h5 th:text="${recipe.notes.getRecipeNote()}"></h5>
+</body>
+</html>

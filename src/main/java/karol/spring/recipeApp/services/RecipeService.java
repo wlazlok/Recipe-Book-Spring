@@ -1,6 +1,8 @@
 package karol.spring.recipeApp.services;
 
 import karol.spring.recipeApp.models.Recipe;
+
+import javax.persistence.Lob;
 import java.util.List;
 
 /**
@@ -10,4 +12,6 @@ import java.util.List;
 public interface RecipeService {
 
     List<Recipe> getRecipes();
+
+    Recipe findById(Long id);
 }
