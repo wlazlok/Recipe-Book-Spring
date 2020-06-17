@@ -1,5 +1,6 @@
 package karol.spring.recipeApp.services;
 
+import karol.spring.recipeApp.commands.IngredientsCommand;
 import karol.spring.recipeApp.models.Ingredient;
 
 /**
@@ -11,5 +12,7 @@ public interface IngredientService {
     Ingredient findByRecipeIdAndIngredient(Long recipeId, Long ingredientId);
 
     void deleteById(Long recipeId, Long ingredientId);
+
+    IngredientsCommand saveIngredientCommand(IngredientsCommand command);
 
 }
