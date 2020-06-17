@@ -13,13 +13,17 @@
                     <th scope="col">ID</th>
                     <th scope="col">Description</th>
                     <th scope="col">Show</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="recipe : ${recipes}">
-                    <th scope="row" th:text="${recipe.id}">1</th>
-                    <td th:tedt="${recipe.description}">Test</td>
-                    <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">Show</a></td>
+                    <th scope="row"><h5 th:text="${recipe.id}"></h5></th>
+                    <td><h5 th:text="${recipe.description}"></h5></td>
+                    <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}"><button type="button" class="btn btn-primary">Show</button></a></td>
+                    <td><a href="#"><button type="button" class="btn btn-warning ">Edit</button></a></td>
+                    <td><a href="#" th:href="@{'/recipe/delete/' + ${recipe.id}}"><button type="button" class="btn btn-danger ">Delete</button></a></td>
                 </tr>
             </tbody>
         </table>

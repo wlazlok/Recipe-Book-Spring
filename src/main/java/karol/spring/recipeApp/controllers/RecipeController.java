@@ -28,4 +28,12 @@ public class RecipeController {
 
         return "recipe/show";
     }
+
+    @GetMapping("/recipe/delete/{id}")
+    public String deleteRecipeById(@PathVariable String id){
+
+        recipeService.deleteById(Long.valueOf(id));
+
+        return "redirect:/";
+    }
 }
