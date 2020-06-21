@@ -1,10 +1,13 @@
 package karol.spring.recipeApp.controllers;
 
+import karol.spring.recipeApp.commands.RecipeCommand;
 import karol.spring.recipeApp.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 /**
@@ -33,6 +36,22 @@ public class RecipeController {
     public String deleteRecipeById(@PathVariable String id){
 
         recipeService.deleteById(Long.valueOf(id));
+
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/recipe/edit/{id}")
+    public String editrecipe(@PathVariable String id, Model model){
+
+        model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
+
+        return "recipe/editRecipeForm";
+    }
+
+    @PostMapping("recipe")
+    public String saveOrUpdate(@ModelAttribute RecipeCommand command){
+        RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
 
         return "redirect:/";
     }

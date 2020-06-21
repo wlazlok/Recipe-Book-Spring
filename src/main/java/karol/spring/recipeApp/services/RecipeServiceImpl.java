@@ -1,6 +1,7 @@
 package karol.spring.recipeApp.services;
 
 import karol.spring.recipeApp.commands.RecipeCommand;
+import karol.spring.recipeApp.converters.RecipeCommandToRecipe;
 import karol.spring.recipeApp.converters.RecipeToRecipeCommand;
 import karol.spring.recipeApp.models.Recipe;
 import karol.spring.recipeApp.repositories.RecipeRepository;
@@ -19,10 +20,12 @@ public class RecipeServiceImpl implements RecipeService {
 
     private final RecipeRepository recipeRepository;
     private final RecipeToRecipeCommand recipeToRecipeCommand;
+    private final RecipeCommandToRecipe recipeCommandToRecipe;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeToRecipeCommand recipeToRecipeCommand) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeToRecipeCommand recipeToRecipeCommand, RecipeCommandToRecipe recipeCommandToRecipe) {
         this.recipeRepository = recipeRepository;
         this.recipeToRecipeCommand = recipeToRecipeCommand;
+        this.recipeCommandToRecipe = recipeCommandToRecipe;
     }
 
     @Override
@@ -48,5 +51,14 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public RecipeCommand findCommandById(Long id) {
         return recipeToRecipeCommand.convert(findById(id));
+    }
+
+    @Override
+    public RecipeCommand saveRecipeCommand(RecipeCommand command) {
+        Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
+
+        Recipe savedRecipe = recipeRepository.save(detachedRecipe);
+
+        return recipeToRecipeCommand.convert(savedRecipe);
     }
 }

@@ -102,7 +102,33 @@ public class DataLoader implements CommandLineRunner {
         recipe.getIngredients().add(new Ingredient("test kukurydza", new BigDecimal(5), recipe, pintUOM));
         recipe.getCategories().add(polishCategory);
         recipe.getCategories().add(americanCategory);
+
         recipes.add(recipe);
+
+        Recipe recipe_1 = new Recipe();
+        recipe_1.setDescription("Test recipe 2 essa");
+
+        recipe_1.setPrepTime(10);
+        recipe_1.setCookTime(5);
+        recipe_1.setDifficulty(Difficulty.EASY);
+        recipe_1.setDirection("\"1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon\" +\n" +
+                "                \"\\n\" +\n" +
+                "                \"2 Mash with a fork: Using a fork, roughly mash the avocado. (Don't overdo it! The guacamole should be a little chunky.)\" +\n" +
+                "                \"\\n\"");
+        Notes notes_1 = new Notes();
+        notes_1.setRecipeNote("For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your");
+        notes_1.setRecipe(recipe_1);
+        recipe_1.setNotes(notes_1);
+        recipe_1.getIngredients().add(new Ingredient("test testing", new BigDecimal(2), recipe_1, teaspoonUOM));
+        recipe_1.getIngredients().add(new Ingredient("kromk testing", new BigDecimal(2), recipe_1, dashUOM));
+        recipe_1.getIngredients().add(new Ingredient("test chleba", new BigDecimal(32), recipe_1, teaspoonUOM));
+        recipe_1.getIngredients().add(new Ingredient("maslo testing", new BigDecimal(10), recipe_1, dashUOM));
+        recipe_1.getIngredients().add(new Ingredient("test kukurydza", new BigDecimal(5), recipe_1, pintUOM));
+        recipe.getCategories().add(polishCategory);
+        recipe_1.getCategories().add(americanCategory);
+
+
+        recipes.add(recipe_1);
 
         return recipes;
     }
