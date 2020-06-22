@@ -24,7 +24,7 @@ To open and run this project, follow this commands:
 2. cd .\Recipe-Book-Spring\
 3. mvn spring-boot:run
 
-Then you can open app in browser on port **8081** *(http://localhost:8080/)*
+Then you can open app in browser on port **8080** *(http://localhost:8080/)*
 
 ## Author
 * **[Karol Wlazło](https://github.com/wlazlok)**
