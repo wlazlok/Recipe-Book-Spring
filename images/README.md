@@ -1,1 +1,1 @@
-*folder with image *
+**Folder with images**
