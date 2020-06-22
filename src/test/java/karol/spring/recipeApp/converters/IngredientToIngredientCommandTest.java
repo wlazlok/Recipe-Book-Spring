@@ -30,13 +30,8 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testNullObject() throws Exception {
+    public void testNullObject(){
         assertNull(converter.convert(null));
-    }
-
-    @Test
-    public void testEmptyObject() throws Exception {
-        assertNotNull(converter.convert(new Ingredient()));
     }
 
     @Test

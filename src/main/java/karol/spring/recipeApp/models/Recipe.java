@@ -152,4 +152,12 @@ public class Recipe {
     public void setServing(Integer serving) {
         this.serving = serving;
     }
+
+    public void setDirections(String directions) {
+        this.direction = directions;
+    }
+
+    public void setServings(Integer servings) {
+        this.serving = servings;
+    }
 }
