@@ -13,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -42,6 +43,27 @@ class IngredientServiceImplTest {
     }
 
     @Test
+    void findByRecipeIdAndIngredient() {
+        Recipe recipe = new Recipe();
+        Ingredient ingredient = new Ingredient();
+        ingredient.setId(2L);
+        recipe.getIngredients().add(ingredient);
+        ingredient.setRecipe(recipe);
+
+        Optional<Recipe> optionalRecipe = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(optionalRecipe);
+
+        Ingredient ingredient_result = ingredientService.findByRecipeIdAndIngredient(1L, 2L);
+
+
+        assertEquals(optionalRecipe.get().getIngredients().get(0), ingredient_result);
+
+        verify(recipeRepository, times(1)).findById(anyLong());
+
+    }
+
+    @Test
     void deleteById() {
         Recipe recipe = new Recipe();
         Ingredient ingredient = new Ingredient();
@@ -61,5 +83,6 @@ class IngredientServiceImplTest {
 
     @Test
     void saveIngredientCommand() {
+
     }
 }
