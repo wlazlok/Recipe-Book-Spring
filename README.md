@@ -32,4 +32,6 @@ Then you can open app in browser on port **8081** *(http://localhost:8080/)*
 
 ## Screenshots
 ![Index page](./images/index.PNG)
-![Add new task](./images/addTask.PNG)
+![Show recipe page](./images/showRecipePage.PNG)
+![Show ingredients of recipe page](./images/ingredientsOfRecipe.PNG)
+![Edit recipe page](./images/editRecipe.PNG)
