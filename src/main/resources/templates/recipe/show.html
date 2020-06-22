@@ -15,7 +15,7 @@
                 <th>
                     <a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/image' }"><button type="button" class="btn btn-secondary btn-sm">Upload Image</button></a>
 
-                    <img src="src/main/resources/static/guacamole.jpg"
+                    <img
                          th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
                           width="200" height="200">
                 </th>
