@@ -38,6 +38,7 @@ public class ImageController {
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
         return "recipe/imageToUploadForm";
     }
+
     @PostMapping("recipe/{id}/image")
     public String handleImagePost(@PathVariable String id, @RequestParam("imagefile")MultipartFile file){
 
