@@ -16,7 +16,8 @@ Project is created with:
 * H2 Database version 1.4.200
 * Thymeleaf version 3.0.11
 * JUnit 5
-* Mockito 
+* Mockito
+* Boostrap
 
 ## Setup
 To open and run this project, follow this commands:
